@@ -96,9 +96,6 @@ import { RouterLink, RouterView } from 'vue-router'
                     </svg>
                   </button>
                 </div>
-
-                <img src="./assets/images/oilbg.png" alt="oilbg" class="main-section1-info-information-oilbg">
-
                 <div class="main-section1-info-information-wrap--txt">
                   <div class="main-section1-info-information-wrap--txt-btn">
                     <button class="main-section1-info-information-btn">
@@ -135,6 +132,7 @@ import { RouterLink, RouterView } from 'vue-router'
             </figure>
 
             <figure class="main-section1-products-card">
+              <img src="./assets/images/oilbg.png" alt="oilbg" width="297" height="464" class="main-section1-products-card-oilbg">
               <span class="main-section1-products-card-num">02</span>
               <div class="main-section1-products-card-wrap">
                 <span class="main-section1-products-card-title">Бесплатный подбор</span>
@@ -153,14 +151,49 @@ import { RouterLink, RouterView } from 'vue-router'
             </figure>
           </figure>
         </section>
+        <section class="main-section2">
+          <figure class="main-section2-promotion1">
+            <span class="main-section2-promotion1-title">Щетки<br>AWM</span>
+            <button class="main-section2-promotion1-btn">подробнее</button>
+          </figure>
+          <figure class="main-section2-promotion2">
+            <figure class="main-section2-promotion2-info">
+              <span class="main-section2-promotion2-info-txt">Весь январь</span>
+              <span class="main-section2-promotion2-info-title">скидка 20%<br>на весь<br>DOT4</span>
+              <button class="main-section2-promotion2-info-btn">подробнее</button>
+            </figure>
+            <div class="main-section2-promotion2-slogan">
+              <span class="main-section2-promotion2-slogan-txt">Цена снижена</span>
+            </div>
+          </figure>
+
+        </section>
       </main>
     </div>
 
     <!--Подвал сайта-->
-    <footer>
-      
+    <footer class="footer">
+      <ul class="footer-list">
+        <li class="footer-list-item">Подбор запчастей</li>
+        <li class="footer-list-item">Доставка</li>
+        <li class="footer-list-item">Как купить</li>
+        <li class="footer-list-item">Оплата</li>
+        <li class="footer-list-item">Договор оферты</li>
+        <li class="footer-list-item">Политика конфиденциальности</li>
+        <li class="footer-list-item">Реквизиты</li>
+        <li class="footer-list-item">Контакты</li>
+        <li class="footer-list-item">Акции</li>
+      </ul>
+      <div class="footer-buttons-wrap">
+        <button class="footer-buttons-btn">
+        </button>
+        <button class="footer-buttons-btn">
+        </button>
+        <button class="footer-buttons-btn">
+        </button>
+      </div>
+      <span class="footer-signature">Дизайн — «Есть Идея!»</span>
     </footer>
-    <span class="footer-title"></span>
   </div>
 </template>
 
@@ -198,6 +231,9 @@ $colortext: #ffffff;
 
 *{
   box-sizing: border-box;
+}
+button:hover{
+  cursor: pointer;
 }
 
 .header{
@@ -250,6 +286,15 @@ $colortext: #ffffff;
         }
         & span{
           padding: 4px 0 0 16px;
+        }
+
+
+
+        &:hover{
+          background-color: #2681ff ;
+        }
+        &:active{
+          background-color: #0055cb;
         }
       }
     }
@@ -380,6 +425,17 @@ $colortext: #ffffff;
         &-btn{ // right, left
           width: 50px;
           height: 50px;
+          border: none;
+          background-color: rgba($color: #ffffff, $alpha: 0.2);
+          & svg{
+            fill: rgba($color: #ffffff, $alpha: 0.2);
+          }
+          &:hover{
+            background-color: rgba($color: #ffffff, $alpha: 0.4);
+            & svg{
+              fill:#ffffff;
+            }
+          }
         }
         &-span{ //New Energy
           margin: 67px 0 0 0;
@@ -389,18 +445,13 @@ $colortext: #ffffff;
           line-height: 71px;
           color: #ffffff;
         }
-        &-oilbg{
-        position: absolute;
-        z-index: 0;
-        left: 804px;
-        top: 215px;
-        }
       }
     }
     &-products{
       display: flex;
       padding: 0 0 28px 0;
       position: relative;
+      z-index: 1;
       &-card{
         max-width: 460px;
         max-height: 216px;
@@ -410,6 +461,12 @@ $colortext: #ffffff;
 
         &:nth-child(2){
           margin: 0 30px;
+          & img{
+            position: absolute;
+            z-index: -1;
+            bottom: 70px;
+            left: 556px;
+          }
         }
         &-wrap{
           display: flex;
@@ -421,7 +478,8 @@ $colortext: #ffffff;
           font-size: 36px;
           line-height: 36px;
           text-align: center;
-          margin: 0 8px 0 0;
+          margin: 0 9px 0 0;
+          color: rgba($color: #222222, $alpha: 0.33);
         }
         &-title{
           font-family: gothampro700;
@@ -471,8 +529,161 @@ $colortext: #ffffff;
       }
     }
   }
+  &-section2{
+    padding: 0 190px 28px 190px;
+    display: flex;
+    color: #ffffff;
+    &-promotion1{
+      width: 460px;
+      height: 356px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0 30px 0 0;
+      padding: 40px;
+      background: url(./assets/images/promotion1.jpg) no-repeat;
+      &-title{
+        margin: 0 0 180px 0;
+
+        font-family: gothampro700;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: left;
+      }
+      &-btn{
+        color: #ffffff;
+        padding: 0;
+        width: 108px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #ffffff;
+
+
+        text-transform: uppercase;
+        font-family: gothampro700;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: left;
+      }
+    }
+    &-promotion2{
+      width: 950px;
+      height: 356px;
+      display: flex;
+      padding: 40px;
+      flex-direction: row;
+      justify-content: space-between;
+      background: url(./assets/images/promotion2.jpg) no-repeat;
+
+      &-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &-txt{
+        font-family: gothampro300;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: left;
+        }
+        &-title{
+          margin: 60px 0;
+
+          font-family: gothampro700;
+          font-size: 30px;
+          line-height: 36px;
+          text-align: left;
+        }
+        &-btn{
+          color: #ffffff;
+          padding: 0;
+          width: 108px;
+          background: none;
+          border: none;
+          border-bottom: 2px solid #ffffff;
+
+
+          text-transform: uppercase;
+          font-family: gothampro700;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: left;
+        }
+      }
+      &-slogan{
+        padding: 13px 15px;
+        background-color: #ff4400;
+        max-height: 50px;
+        &-txt{
+          font-family: gothampro400;
+          font-size: 15px;
+          line-height: 24px;
+          text-align:center;
+
+        }
+      }
+    }
+  }
 }
 
+.footer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 330px;
+  background-color: #f0f0f0;
+  justify-content: space-between;
+    &-list{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    &-item{
+      font-family: gothampro700;
+      font-size: 15px;
+      line-height: 19px;
+      text-align: center;
+
+      margin: 0 35px 0 0;
+      &:nth-last-child(1){
+      margin-right: 0;
+      }
+    }
+  }
+  &-buttons{
+    &-wrap{
+      margin: 30px auto 16px auto;
+    }
+    &-btn{
+      height: 30px;
+      width: 30px;
+      margin: 0 24px 0 0;
+      align-items: center;
+      border: none;
+      border-radius: 24px;
+      &:nth-child(1){
+        background: #ffffff url(./assets/images/VK.svg) no-repeat center;
+        padding: 10px 6px 0 0;
+      }
+      &:nth-child(2){
+        background: #ffffff url(./assets/images/WhatsApp.svg) no-repeat center;
+        padding: 0px 0 0 0px;
+      }
+      &:nth-child(3){
+        background: #ffffff url(./assets/images/Instagram.svg) no-repeat center;
+      }
+      &:nth-last-child(1){
+        margin: 0;
+      }
+    }
+  }
+  &-signature{
+    margin: 0 auto;
+    white-space: nowrap;
+    font-family: gothampro400;
+    font-size: 13px;
+    line-height: 19px;
+    text-align: center;
+  }
+}
 
 
 
