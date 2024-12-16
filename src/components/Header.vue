@@ -488,7 +488,7 @@ button:hover {
 
     }
 }
-@media (min-width: 1280px){
+@media (max-width: 1280px){
     .header {
         padding: 23px 30px;
         &-mini--info{
@@ -513,7 +513,7 @@ button:hover {
     }
 }
 
-@media (min-width: 960px){
+@media (max-width: 960px){
     .header {
         padding: 23px 20px;
         &-search--info{
