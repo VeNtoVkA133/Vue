@@ -1,6 +1,7 @@
 <script setup>
 import Header from './components/Header.vue';
 import Card from './components/Card.vue';
+import Footer from './components/Footer.vue';
 //import { RouterLink, RouterView } from 'vue-router'
 </script>
 
@@ -47,25 +48,29 @@ import Card from './components/Card.vue';
             </div>
           </figure>
           <figure class="main-section1-products">
-            <Card />
-            <figure class="main-section1-products-card">
-              <img src="./assets/images/oilbg.png" alt="oilbg" width="297" height="464" class="main-section1-products-card-oilbg">
-              <span class="main-section1-products-card-num">02</span>
-              <div class="main-section1-products-card-wrap">
-                <span class="main-section1-products-card-title">Бесплатный подбор</span>
-                <p class="main-section1-products-card-description">Мы найдем самую низкую цену на оригинальную запчасть, достойную альтернативу или самый дешевый аналог.</p>
-                <button class="main-section1-products-card-btn">Заявка на подбор</button>
-              </div>
-            </figure>
+            <img class="main-section1-products-oilbg" src="./assets/images/oilbg.png" alt="oilbg" width="297" height="464">
+            <Card
+              num="01"
+              title="Бесплатный звонок"
+              desc="На любые номера РФ"
+              phone="8 800 550-19-80"
+              btn_img="" btn_text="+7 (928) 107-80-80"
+            />
 
-            <figure class="main-section1-products-card">
-              <span class="main-section1-products-card-num">03</span>
-              <div class="main-section1-products-card-wrap">
-                <span class="main-section1-products-card-title">Бесплатная доставка</span>
-                <p class="main-section1-products-card-description">Согласуем и привезём запчасти в офис или домой в удобное для Вас время.</p>
-                <button class="main-section1-products-card-btn">Пункты выдачи</button>
-              </div>
-            </figure>
+            <Card
+              num="02"
+              title="Бесплатный подбор"
+              desc="Мы найдем самую низкую цену на оригинальную запчасть, достойную альтернативу или самый дешевый аналог."
+              btn_text="Заявка на подбор"
+            />
+
+            <Card
+              num="03"
+              title="Бесплатная доставка"
+              desc="Согласуем и привезём запчасти в офис или домой в удобное для Вас время."
+              btn_text="Пункты выдачи"
+            />
+
           </figure>
         </section>
         <section class="main-section2">
@@ -89,28 +94,7 @@ import Card from './components/Card.vue';
     </div>
 
     <!--Подвал сайта-->
-    <footer class="footer">
-      <ul class="footer-list">
-        <li class="footer-list-item">Подбор запчастей</li>
-        <li class="footer-list-item">Доставка</li>
-        <li class="footer-list-item">Как купить</li>
-        <li class="footer-list-item">Оплата</li>
-        <li class="footer-list-item">Договор оферты</li>
-        <li class="footer-list-item">Политика конфиденциальности</li>
-        <li class="footer-list-item">Реквизиты</li>
-        <li class="footer-list-item">Контакты</li>
-        <li class="footer-list-item">Акции</li>
-      </ul>
-      <div class="footer-buttons-wrap">
-        <button class="footer-buttons-btn">
-        </button>
-        <button class="footer-buttons-btn">
-        </button>
-        <button class="footer-buttons-btn">
-        </button>
-      </div>
-      <span class="footer-signature">Дизайн — «Есть Идея!»</span>
-    </footer>
+    <Footer />
   </div>
 </template>
 
@@ -155,6 +139,7 @@ button:hover{
 
 
 .main{
+  //display: none;
   width: 100%;
   padding: 40px 50px 0 50px;
   background-color: #f0f0f0;
@@ -232,81 +217,14 @@ button:hover{
       display: flex;
       padding: 0 0 28px 0;
       position: relative;
+      justify-content: space-between;
       z-index: 1;
-      &-card{
-        max-width: 460px;
-        max-height: 216px;
-        display: flex;
-        padding: 32px 20px 32px 16px;
-        background-color: #fff;
 
-        &:nth-child(2){
-          margin: 0 30px;
-          & img{
-            position: absolute;
-            z-index: -1;
-            bottom: 70px;
-            left: 556px;
-          }
-        }
-        &-wrap{
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-        &-num{
-          font-family: gothampro900;
-          font-size: 36px;
-          line-height: 36px;
-          text-align: center;
-          margin: 0 9px 0 0;
-          color: rgba($color: #222222, $alpha: 0.33);
-        }
-        &-title{
-          font-family: gothampro700;
-          font-size: 24px;
-          line-height: 24px;
-          text-align: left;
-        }
-        &-description{
-          font-family: gothampro400;
-          font-size: 14px;
-          line-height: 20px;
-          text-align: left;
-          padding: 8px 0;
-        }
-        &-phone{
-          font-family: gothampro400;
-          font-size: 24px;
-          line-height: 40px;
-          text-align: left;
-        }
-        &-btn{
-          padding: 13px 103px;
-          font-family: gothampro700;
-          font-size: 16px;
-          line-height: 23px;
-          text-align: center;
-          border-radius: 4px;
-          border: 2px solid #1c69d4;
-          color: #1c69d4;
-          background: none;
-          &:nth-child(4){
-            display: flex;
-            flex-direction: row;
-            padding: 13px 82px;
-            border: 2px solid #3ca255;
-            color: #3ca255;
-            & svg{
-              fill: #3ca255;
-              margin: 0 8px 0 0;
-            }
-            & span{
-              white-space: nowrap;
-              padding: 5px 0 0 0;
-            }
-          }
-        }
+      &-oilbg{
+        position: absolute;
+        z-index: -1;
+        bottom: 70px;
+        left: 563px;
       }
     }
   }
@@ -406,65 +324,6 @@ button:hover{
   }
 }
 
-.footer{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 24px 330px;
-  background-color: #f0f0f0;
-  justify-content: space-between;
-    &-list{
-    display: flex;
-    list-style: none;
-    padding: 0;
-    &-item{
-      font-family: gothampro700;
-      font-size: 15px;
-      line-height: 19px;
-      text-align: center;
-
-      margin: 0 35px 0 0;
-      &:nth-last-child(1){
-      margin-right: 0;
-      }
-    }
-  }
-  &-buttons{
-    &-wrap{
-      margin: 30px auto 16px auto;
-    }
-    &-btn{
-      height: 30px;
-      width: 30px;
-      margin: 0 24px 0 0;
-      align-items: center;
-      border: none;
-      border-radius: 24px;
-      &:nth-child(1){
-        background: #ffffff url(./assets/images/VK.svg) no-repeat center;
-        padding: 10px 6px 0 0;
-      }
-      &:nth-child(2){
-        background: #ffffff url(./assets/images/WhatsApp.svg) no-repeat center;
-        padding: 0px 0 0 0px;
-      }
-      &:nth-child(3){
-        background: #ffffff url(./assets/images/Instagram.svg) no-repeat center;
-      }
-      &:nth-last-child(1){
-        margin: 0;
-      }
-    }
-  }
-  &-signature{
-    margin: 0 auto;
-    white-space: nowrap;
-    font-family: gothampro400;
-    font-size: 13px;
-    line-height: 19px;
-    text-align: center;
-  }
-}
 
 
 

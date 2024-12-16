@@ -1,16 +1,17 @@
 <template>
     <figure class="card">
-        <span class="card-num">01</span>
+        <span class="card-num" :style="[num == none ? 'display: none' : 'display: block']">{{ num }}</span>
         <div class="card-wrap">
-            <span class="card-title">Бесплатный звонок</span>
-            <p class="card-description">На любые номера РФ</p>
-            <span class="card-phone">8 800 550-19-80</span>
-            <button class="card-btn">
-                <svg width="30" height="31" viewBox="0 0 30 31" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M30 15.1304C30 23.0491 23.407 29.4684 15.2727 29.4684C12.6903 29.4684 10.2643 28.8208 8.15367 27.6843L0 30.2264L2.65833 22.5337C1.31733 20.3733 0.545 17.8393 0.545 15.1304C0.545 7.2117 7.13867 0.79248 15.273 0.79248C23.4077 0.79248 30 7.2117 30 15.1304ZM15.2727 3.0759C8.44467 3.0759 2.89067 8.48358 2.89067 15.1304C2.89067 17.7684 3.767 20.211 5.24933 22.1982L3.70233 26.6747L8.46067 25.1909C10.4157 26.4504 12.7577 27.1849 15.273 27.1849C22.1 27.1849 27.655 21.7779 27.655 15.1307C27.6547 8.4839 22.1003 3.0759 15.2727 3.0759ZM22.7097 18.4326C22.6187 18.2864 22.3783 18.1981 22.0177 18.0225C21.6563 17.8468 19.881 16.9962 19.551 16.8798C19.22 16.7624 18.9787 16.7035 18.7383 17.0551C18.498 17.407 17.806 18.1981 17.595 18.4326C17.3843 18.6677 17.174 18.6972 16.8127 18.5212C16.452 18.3456 15.289 17.9741 13.91 16.7768C12.837 15.8457 12.1123 14.6954 11.9017 14.3435C11.6913 13.992 11.8797 13.802 12.06 13.627C12.2227 13.4694 12.4213 13.2166 12.6017 13.0115C12.7827 12.8061 12.8427 12.6599 12.9623 12.4251C13.0833 12.1906 13.023 11.9856 12.9323 11.8093C12.8423 11.6337 12.1197 9.90425 11.819 9.20078C11.5183 8.49731 11.218 8.61439 11.007 8.61439C10.7967 8.61439 10.5557 8.58496 10.315 8.58496C10.0743 8.58496 9.683 8.67293 9.352 9.02451C9.02133 9.3764 8.089 10.2267 8.089 11.9558C8.089 13.6852 9.382 15.3561 9.563 15.5906C9.74333 15.8247 12.0597 19.4889 15.7297 20.8962C19.4 22.3025 19.4 21.8332 20.062 21.7743C20.7233 21.7158 22.1973 20.9243 22.4993 20.1041C22.7993 19.2826 22.7993 18.5791 22.7097 18.4326Z" />
-                </svg>
-                <span>+7 (928) 107-80-80</span>
+            <span class="card-title">{{ title }}</span>
+            <p class="card-description">{{ desc }}</p>
+            <span class="card-phone" :style="[phone == none ? 'display: none' : 'display: block']">
+                {{ phone }}
+            </span>
+            <button class="card-btn"
+                :style="[btn_img != none ? 'display: flex; flex-direction: row; padding: 13px 82px; border: 2px solid #3ca255; color: #3ca255;' : '']">
+                <img class="card-btn-img" src="../assets/images/WhatsAppBtn.svg" alt="btn_img"
+                    :style="[btn_img == none ? 'display: none' : 'display: block; margin: 0 8px 0 0;']">
+                <span :style="[btn_img != none ? 'white-space: nowrap; padding: 5px 0 0 0;' : '']">{{ btn_text }}</span>
             </button>
         </div>
     </figure>
@@ -19,29 +20,86 @@
 
 
 <script setup>
-
+defineProps({
+    num: {
+        type: Number,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    desc: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: String,
+        required: true
+    },
+    btn_img: {
+        type: String,
+        required: true
+    },
+    btn_text: {
+        type: String,
+        required: true
+    },
+});
 
 </script>
 
 
 <style lang="scss" scoped>
+@font-face {
+    font-family: gothampro700;
+    src: url(./assets/fonts/gothampro_bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: gothampro400;
+    src: url(./assets/fonts/gothampro_medium.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: gothampro300;
+    src: url(./assets/fonts/gothampro_light.ttf);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: gothampro900;
+    src: url(./assets/fonts/gothampro_black.ttf);
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+/* Переменные (через $) */
+$colortext: #ffffff;
+
+* {
+    box-sizing: border-box;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+
+
+
 .card {
     max-width: 460px;
     max-height: 216px;
     display: flex;
     padding: 32px 20px 32px 16px;
     background-color: #fff;
-
-    &:nth-child(2) {
-        margin: 0 30px;
-
-        & img {
-            position: absolute;
-            z-index: -1;
-            bottom: 70px;
-            left: 556px;
-        }
-    }
 
     &-wrap {
         display: flex;
@@ -90,24 +148,6 @@
         border: 2px solid #1c69d4;
         color: #1c69d4;
         background: none;
-
-        &:nth-child(4) {
-            display: flex;
-            flex-direction: row;
-            padding: 13px 82px;
-            border: 2px solid #3ca255;
-            color: #3ca255;
-
-            & svg {
-                fill: #3ca255;
-                margin: 0 8px 0 0;
-            }
-
-            & span {
-                white-space: nowrap;
-                padding: 5px 0 0 0;
-            }
-        }
     }
 }
 </style>

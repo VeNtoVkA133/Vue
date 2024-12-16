@@ -7,7 +7,10 @@
                     <input type="checkbox" id="dropdown" name="dropdown">
                     <label for="dropdown" class="header-mini--info-wrap--micro-dropdown-btn">
 
-                        Офис на Малиновского
+                        <span class="header-mini--info-wrap--micro-dropdown-txt">
+                            <span class="header-mini--info-wrap--micro-dropdown-txt-fst">Офис на </span>
+                            Малиновского
+                        </span>
                         <svg width="8" height="8" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.5 3.5V2.5H1.5V3.5H0.5Z" />
                             <path d="M2.5 4.5H1.5V3.5H2.5V4.5Z" />
@@ -125,7 +128,8 @@ button:hover {
     cursor: pointer;
 }
 
-.header {
+@media (min-width: 1920px){
+    .header {
     background-color: #ffffff;
     display: flex;
     padding: 26px 55px;
@@ -137,7 +141,7 @@ button:hover {
         margin: 0 30px 0 0;
 
         &-wrap--micro {
-            margin: 0 30px;
+            margin: 0 0 0 30px;
             display: flex;
             flex-direction: column;
 
@@ -155,7 +159,11 @@ button:hover {
                         }
                     }
                 }
-
+                &-txt{
+                    &-fst{
+                        display: inline-block;
+                    }
+                }
                 &-btn {
                     display: flex;
                     padding: 0;
@@ -212,7 +220,9 @@ button:hover {
     &-search--info {
         display: flex;
         margin: 0;
+        width: 1397px;
         flex-direction: column;
+        white-space: nowrap;
 
         &-phone {
             margin: 0 36px 0 0;
@@ -261,7 +271,7 @@ button:hover {
 
     &-search {
         display: flex;
-        width: 1397px;
+        width: 100%;
         border: 1px solid #bbbbbb;
         border-radius: 4px;
         padding: 13px 17px;
@@ -296,5 +306,224 @@ button:hover {
         display: flex;
     }
 
+    }
 }
+@media (max-width: 1920px){
+    .header {
+    background-color: #ffffff;
+    display: flex;
+    padding: 26px 55px;
+    width: 100%;
+    justify-content: space-between;
+
+    &-mini--info {
+        display: flex;
+        margin: 0 30px 0 0;
+
+        &-wrap--micro {
+            margin: 0 0 0 30px;
+            display: flex;
+            flex-direction: column;
+
+            &-dropdown {
+                margin: 0 0 18px 0;
+
+                & input {
+                    display: none;
+                }
+
+                &>input {
+                    &:checked~ {
+                        .header-mini--info-wrap--micro-dropdown-list {
+                            display: block;
+                        }
+                    }
+                }
+                &-txt{
+                    &-fst{
+                        display: inline-block;
+                    }
+                }
+                &-btn {
+                    display: flex;
+                    padding: 0;
+                    border: none;
+                    color: #222222;
+                    text-align: left;
+                    background: none;
+
+                    & svg {
+                        margin: 8px 0;
+                        margin-left: 8px;
+                        fill: #222222;
+                    }
+                }
+
+                &-list {
+                    display: none;
+                    //padding: 0;
+                    //list-style: none;
+                }
+
+
+            }
+
+            &-btn {
+                display: flex;
+                padding: 15px 56px;
+                border: none;
+                color: $colortext;
+                border-radius: 4px;
+                background-color: #1c69d4;
+
+                & svg {
+                    fill: $colortext;
+                }
+
+                & span {
+                    padding: 4px 0 0 16px;
+                }
+
+
+
+                &:hover {
+                    background-color: #2681ff;
+                }
+
+                &:active {
+                    background-color: #0055cb;
+                }
+            }
+        }
+    }
+
+    &-search--info {
+        display: flex;
+        margin: 0;
+        width: 1397px;
+        flex-direction: column;
+        white-space: nowrap;
+
+        &-phone {
+            margin: 0 36px 0 0;
+            color: #000;
+        }
+
+        &-list {
+            display: flex;
+            color: #000;
+            list-style: none;
+            padding: 0;
+
+            & li {
+                margin-right: 40px;
+
+                &:nth-last-child(1) {
+                    margin: 0;
+                }
+            }
+
+        }
+
+        &-login {
+            display: flex;
+
+            &-btn {
+                display: flex;
+                border: none;
+                color: #222222;
+                background: none;
+
+                & svg {
+                    fill: #222222;
+                }
+
+                & span {
+                    margin: 4px 0 0 8px;
+                }
+
+                &:nth-last-child(1) {
+                    margin: 0 0 0 24px;
+                }
+            }
+        }
+    }
+
+    &-search {
+        display: flex;
+        width: 100%;
+        border: 1px solid #bbbbbb;
+        border-radius: 4px;
+        padding: 13px 17px;
+        margin: 18px 0 0 0;
+        box-shadow: inset 0 2px 4px #bbbbbb;
+
+        &-btn {
+            border: none;
+            background: none;
+            margin: 0 8px 0 0;
+
+            & svg {
+                fill: #222222;
+            }
+        }
+
+        &-inp {
+            padding: 0;
+            border: none;
+            background: none;
+            vertical-align: top;
+            margin: 8px 0;
+        }
+    }
+
+    &-wrap--search--info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-wrap--search--list {
+        display: flex;
+    }
+
+    }
+}
+@media (min-width: 1280px){
+    .header {
+        padding: 23px 30px;
+        &-mini--info{
+            margin: 0 20px 0 0;
+            &-wrap--micro{
+                &-dropdown{
+                    &-txt{
+                        &-fst{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        &-search--info{
+            &-list{
+                & li:nth-child(3){
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 960px){
+    .header {
+        padding: 23px 20px;
+        &-search--info{
+            &-list{
+                display: none;
+            }
+        }
+    }
+}
+
+
+
 </style>
