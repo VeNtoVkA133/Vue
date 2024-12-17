@@ -203,7 +203,7 @@
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1440px) {
     .footer {
         width: 100%;
         padding: 24px 70px;
@@ -215,7 +215,7 @@
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1280px) {
     .footer {
         width: 100%;
         padding: 24px 52px;
@@ -230,7 +230,7 @@
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 960px) {
     .footer {
         width: 100%;
         padding: 24px 23px;
@@ -251,7 +251,9 @@
     }
 }
 
-@media (max-width: 320px) {
+
+
+@media (max-width: 640px) {
     .footer {
         width: 100%;
         padding: 24px 10px;
