@@ -219,6 +219,10 @@
     .footer {
         width: 100%;
         padding: 24px 52px;
+
+        &-list{
+            justify-content: center;
+        }
     }
     .second-item{
         &:nth-child(1){
@@ -234,10 +238,12 @@
     .footer {
         width: 100%;
         padding: 24px 23px;
+        justify-content: center;
         &-list{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             white-space: nowrap;
+            padding: 0 42px;
             &-first{
                 display: flex;
                 flex-direction: row;
@@ -245,7 +251,7 @@
             &-second{
                 display: flex;
                 flex-direction: row;
-                margin: 20px 31px 0 31px;
+                //margin: 20px 31px 0 31px;
             }
         }
     }
@@ -256,35 +262,69 @@
 @media (max-width: 640px) {
     .footer {
         width: 100%;
-        padding: 24px 10px;
+        padding: 24px 20px;
         align-self: flex-start;
         &-list{
             display: flex;
             flex-direction: column;
             white-space: nowrap;
+            padding: 0 9px;
             &-first{
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 & li{
                     align-self: flex-start;
                 }
             }
             &-second{
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 //margin: 20px 31px 0 31px;
+                margin-top: 20px;
+                justify-content: center;
                 & li{
                     align-self: flex-start;
                 }
+                
             }
-        }
-        &-buttons{
-            &-wrap{
-                margin: 20px 0 0 10px;
+            &-item{
+                margin: 0 20px 0 0;
             }
         }
         &-signature{
             margin: 16px 0 0 10px;
+        }
+    }
+    .second-item{
+        &:nth-child(1){
+            display: block;
+        }
+        &:nth-child(2){
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .footer{
+        padding: 24px 10px;
+        &-list{
+            flex-direction: column;
+            &-item{
+                width: 100%;
+                margin: 0;
+                align-self: center;
+            }
+            &-first{
+                margin: 0;
+                flex-direction: column;
+                align-self: center;
+            }
+            &-second{
+                margin: 0;
+                flex-direction: column;
+                align-self: center;
+            }
         }
     }
 }
